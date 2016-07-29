@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.0"
+    xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+	
+	<!-- 定义过滤器 -->
+	<filter>
+		<filter-name>Demo1</filter-name>
+		<filter-class>cn.tf.filter.Demo1</filter-class>
+	</filter>
+	
+	<!-- 映射要过滤的资源 -->
+	<filter-mapping>
+		<filter-name>Demo1</filter-name>
+		<url-pattern>/index.jsp</url-pattern>
+	</filter-mapping>
+	
+	
+	
+  
+  <filter>
+  	<filter-name>Demo2</filter-name>
+  	<filter-class>cn.tf.filter.Demo2</filter-class>
+  </filter>
+  <filter-mapping>
+  	<filter-name>Demo2</filter-name>
+  	<url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
+  <servlet>
+    <servlet-name>ServletDemo1</servlet-name>
+    <servlet-class>cn.tf.servlet.ServletDemo1</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>Demo1</servlet-name>
+    <servlet-class>cn.tf.servlet.Demo1</servlet-class>
+  </servlet>
+
+
+  <servlet-mapping>
+    <servlet-name>ServletDemo1</servlet-name>
+    <url-pattern>/servlet/ServletDemo1</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Demo1</servlet-name>
+    <url-pattern>/servlet/Demo1</url-pattern>
+  </servlet-mapping>
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+
+
+	<filter>
+	  	<filter-name>SetCharacterEncodingFilter</filter-name>
+	  	<filter-class>cn.tf.filter.SetCharacterEncodingFilter</filter-class>
+	  </filter>
+	  <filter-mapping>
+	  	<filter-name>SetCharacterEncodingFilter</filter-name>
+	  	<url-pattern>/*</url-pattern>
+	  </filter-mapping>
+	  
+	  
+	<filter>
+		<filter-name>DynamicNoCacheFilter</filter-name>
+		<filter-class>cn.tf.filter.DynamicNoCacheFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>DynamicNoCacheFilter</filter-name>
+		<url-pattern>*.jsp</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>DynamicNoCacheFilter</filter-name>
+		<url-pattern>/servlet/*</url-pattern>
+	</filter-mapping>
+
+
+</web-app>
