@@ -5,46 +5,67 @@
     xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
 	
 	<!-- 定义过滤器 -->
-	<filter>
+	<!-- <filter>
 		<filter-name>Demo1</filter-name>
 		<filter-class>cn.tf.filter.Demo1</filter-class>
 	</filter>
 	
-	<!-- 映射要过滤的资源 -->
+	映射要过滤的资源
 	<filter-mapping>
 		<filter-name>Demo1</filter-name>
 		<url-pattern>/index.jsp</url-pattern>
 	</filter-mapping>
-	
+	 -->
 	
 	
   
-  <filter>
+<!--   <filter>
   	<filter-name>Demo2</filter-name>
   	<filter-class>cn.tf.filter.Demo2</filter-class>
   </filter>
   <filter-mapping>
   	<filter-name>Demo2</filter-name>
   	<url-pattern>/*</url-pattern>
-  </filter-mapping>
+  </filter-mapping> -->
   
   <servlet>
     <servlet-name>ServletDemo1</servlet-name>
     <servlet-class>cn.tf.servlet.ServletDemo1</servlet-class>
   </servlet>
+    <servlet-mapping>
+    <servlet-name>ServletDemo1</servlet-name>
+    <url-pattern>/servlet/ServletDemo1</url-pattern>
+  </servlet-mapping>
+  
+  
   <servlet>
     <servlet-name>Demo1</servlet-name>
     <servlet-class>cn.tf.servlet.Demo1</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>ServletDemo2</servlet-name>
+    <servlet-class>cn.tf.servlet.ServletDemo2</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ServletDemo3</servlet-name>
+    <servlet-class>cn.tf.servlet.ServletDemo3</servlet-class>
+  </servlet>
 
 
-  <servlet-mapping>
-    <servlet-name>ServletDemo1</servlet-name>
-    <url-pattern>/servlet/ServletDemo1</url-pattern>
-  </servlet-mapping>
+
+
+
   <servlet-mapping>
     <servlet-name>Demo1</servlet-name>
     <url-pattern>/servlet/Demo1</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ServletDemo2</servlet-name>
+    <url-pattern>/servlet/ServletDemo2</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ServletDemo3</servlet-name>
+    <url-pattern>/servlet/ServletDemo3</url-pattern>
   </servlet-mapping>
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
@@ -75,15 +96,59 @@
 	</filter-mapping>
 	
 	
-	<filter>
+	
+	 <!-- <filter>
 	  	<filter-name>Demo11</filter-name>
 	  	<filter-class>cn.tf.filter1.Demo1</filter-class>
 	  </filter>
 	  <filter-mapping>
 	  	<filter-name>Demo11</filter-name>
 	  	<url-pattern>/*</url-pattern>
+	  </filter-mapping> -->
+	 
+	 
+	 <!-- 过滤html -->
+	 <filter>
+	 <filter-name>HtmlFilter</filter-name>
+	  	<filter-class>cn.tf.filterHtml.HtmlFilter</filter-class>
+	  </filter>
+	  <filter-mapping>
+	  	<filter-name>HtmlFilter</filter-name>
+	  	<url-pattern>/*</url-pattern>
 	  </filter-mapping>
-	
-
+	 
+	 <!-- 脏话过滤 -->
+	 <filter>
+	 <filter-name>DirtyWordsFilter</filter-name>
+	  	<filter-class>cn.tf.filterHtml.DirtyWordsFilter</filter-class>
+	  </filter>
+	  <filter-mapping>
+	  	<filter-name>DirtyWordsFilter</filter-name>
+	  	<url-pattern>/*</url-pattern>
+	  </filter-mapping>
+	  
+	  
+	  
+	<!-- GZIP压缩 -->
+ <filter>
+	 <filter-name>GzipFilter</filter-name>
+	  	<filter-class>cn.tf.filterHtml.GzipFilter</filter-class>
+	  </filter>
+	  <filter-mapping>
+	  	<filter-name>GzipFilter</filter-name>
+	  	<url-pattern>*.jsp</url-pattern>
+	  </filter-mapping>
+	  	  <filter-mapping>
+	  	<filter-name>GzipFilter</filter-name>
+	  	<url-pattern>*.html</url-pattern>
+	  </filter-mapping>
+	  	  <filter-mapping>
+	  	<filter-name>GzipFilter</filter-name>
+	  	<url-pattern>*.js</url-pattern>
+	  </filter-mapping>
+	  	  <filter-mapping>
+	  	<filter-name>GzipFilter</filter-name>
+	  	<url-pattern>*.css</url-pattern>
+	  </filter-mapping>
 
 </web-app>
